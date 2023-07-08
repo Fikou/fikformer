@@ -55,4 +55,5 @@ func handle_firing(delta):
 
 func fire_projectile():
 	attack_cd = ATTACK_COOLDOWN_TIME
+	
 	print("fire!")
