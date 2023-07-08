@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -400.0
 
 var ATTACK_COOLDOWN_TIME = 0.1
 var attack_cd = 0.1
+@onready var BulletScene: PackedScene = load("res://bullets/bullet_player.tscn")
 
 @onready var hint = $HitboxHint
 
@@ -55,4 +56,10 @@ func handle_firing(delta):
 
 func fire_projectile():
 	attack_cd = ATTACK_COOLDOWN_TIME
-	print("fire!")
+	
+	var BulletInstance = BulletScene.instantiate()
+	owner.add_child(BulletInstance)
+	BulletInstance.set_position(position)
+	BulletInstance.look_at(get_global_mouse_position())
+	
+	

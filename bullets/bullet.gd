@@ -1,18 +1,17 @@
-extends Node2D
+extends Area2D
 
 class_name Bullet
 
+@export var Speed = 500
+
 @export var target_name = ""
 
-var sprite = null
-
 func _ready():
-	sprite = $Sprite2D
-	if !sprite:
-		push_warning("no sprite for "+self.name+"!")
-
+	var sprite_check = $Sprite2D
+	
 # children modify this for how the bullet behaves
 func _physics_process(delta):
+	super(delta)
 	pass
 
 func _on_bullet_hit(body):

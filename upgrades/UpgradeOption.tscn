@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmybh4y2frqu4"]
+
+[ext_resource type="Theme" uid="uid://bnfx3qcsvfhjl" path="res://theme.tres" id="1_p5i3j"]
+
+[node name="UpgradeOption" type="Panel"]
+anchors_preset = -1
+anchor_right = 0.305
+anchor_bottom = 0.66
+offset_right = -0.360016
+offset_bottom = 0.319977
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme = ExtResource("1_p5i3j")
+
+[node name="Select" type="Button" parent="."]
+layout_mode = 2
+offset_left = 23.0
+offset_top = 373.0
+offset_right = 329.0
+offset_bottom = 423.0
+theme = ExtResource("1_p5i3j")
+text = "SELECT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.5
+offset_top = 7.0
+offset_right = 160.5
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = ExtResource("1_p5i3j")
+text = "Sex upgrade"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.5
+offset_top = 69.0
+offset_right = 161.5
+offset_bottom = 351.0
+grow_horizontal = 2
+theme = ExtResource("1_p5i3j")
+theme_override_font_sizes/font_size = 24
+text = "give you ultimate sex"
+horizontal_alignment = 1
+autowrap_mode = 3

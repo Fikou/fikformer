@@ -25,7 +25,7 @@ func load_screen(new_scene_path):
 	return new_scene_instance
 
 func unload_screen():
-	remove_child(current_screen)
+	self.remove_child(current_screen)
 	current_screen.call_deferred("free")
 
 func set_music(path):
