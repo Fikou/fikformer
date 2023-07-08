@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bymu21qays3qk"]
+[gd_scene load_steps=6 format=3 uid="uid://bymu21qays3qk"]
 
+[ext_resource type="Theme" uid="uid://bnfx3qcsvfhjl" path="res://theme.tres" id="1_h4sac"]
 [ext_resource type="Texture2D" uid="uid://bnp2hh161yu4n" path="res://assets/title.png" id="1_wfp03"]
+[ext_resource type="AudioStream" uid="uid://bhsrqw3ylijc8" path="res://assets/Ancient Rite.mp3" id="2_u3v1o"]
+[ext_resource type="Script" path="res://screens/title/title.gd" id="2_x382j"]
+[ext_resource type="Script" path="res://screens/title/AudioStreamPlayer.gd" id="4_gdhvh"]
 
 [node name="title" type="Control"]
 layout_mode = 3
@@ -9,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_h4sac")
+script = ExtResource("2_x382j")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -24,15 +30,23 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 200.0
-offset_top = 343.0
+offset_top = 358.0
 offset_right = -200.0
-offset_bottom = -80.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Start" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Start"
+text = "START"
+
+[node name="Credits" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
 
 [node name="Title Logo" type="TextureRect" parent="."]
 layout_mode = 0
@@ -41,3 +55,11 @@ offset_top = 15.0
 offset_right = 817.0
 offset_bottom = 298.0
 texture = ExtResource("1_wfp03")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u3v1o")
+autoplay = true
+script = ExtResource("4_gdhvh")
+
+[connection signal="pressed" from="Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
