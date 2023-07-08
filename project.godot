@@ -10,6 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Fikformer"
-config/features=PackedStringArray("4.0", "Forward Plus")
+config/name="Tombraided"
+run/main_scene="res://game.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
