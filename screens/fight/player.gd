@@ -5,6 +5,20 @@ const SPEED = 200.0
 const SLOW_SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 
+var ATTACK_COOLDOWN_TIME = 0.1
+var attack_cd = 0.1
+
+@onready var hint = $HitboxHint
+
+var cursor_idle = load("res://assets/cursor.png")
+var cursor_firing = load("res://assets/cursor_firing.png")
+
+# tween between red and white, move to ready to set this up
+func _process(delta):
+	handle_firing(delta)
+	hint.set_modulate(Color(1,0,0))
+
+# use delta
 func _physics_process(delta):
 	var current_speed = SPEED
 	if Input.is_action_pressed("walk"):
@@ -23,3 +37,22 @@ func _physics_process(delta):
 		velocity.x = 0
 
 	move_and_slide()
+
+func handle_firing(delta):
+	#lower cooldowns
+	attack_cd = move_toward(attack_cd, 0, delta)
+	var can_fire = false
+	if !attack_cd:
+		can_fire = true
+	
+	#see if we are firing
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		Input.set_custom_mouse_cursor(cursor_firing)
+		if can_fire:
+			fire_projectile()
+	else:
+		Input.set_custom_mouse_cursor(cursor_idle)
+
+func fire_projectile():
+	attack_cd = ATTACK_COOLDOWN_TIME
+	print("fire!")

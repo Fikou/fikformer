@@ -6,9 +6,11 @@ const SCREEN_UPGRADES = "res://screens/upgrades/upgrades.tscn"
 
 var current_screen = null
 
+@onready var music_player = $AudioStreamPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_screen(SCREEN_FIGHT)
+	set_screen(SCREEN_TITLE)
 
 func set_screen(new_scene_path):
 	var new_screen = load_screen(new_scene_path)
