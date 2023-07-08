@@ -54,15 +54,14 @@ text = "CREDITS"
 layout_mode = 2
 text = "QUIT"
 
-[node name="Title Logo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Title Logo" type="TextureRect" parent="Panel"]
+layout_mode = 2
 offset_left = 334.0
 offset_top = 15.0
-offset_right = -335.0
-offset_bottom = -350.0
+offset_right = 817.0
+offset_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_wfp03")
 
 [node name="Panel" type="Panel" parent="Panel"]
@@ -80,6 +79,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 200.0
+offset_top = 16.0
 offset_right = -200.0
 grow_horizontal = 2
 grow_vertical = 2
