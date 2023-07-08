@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bnfx3qcsvfhjl"]
+
+[ext_resource type="FontFile" uid="uid://civuroirkdici" path="res://assets/VCR_OSD_Mono.ttf" id="1_jhxo0"]
+[ext_resource type="Texture2D" uid="uid://ldthjoru6jwe" path="res://assets/bricks.png" id="2_v8s5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42812"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wferd"]
+bg_color = Color(0.164706, 0.137255, 0.109804, 0.568627)
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsg3q"]
+bg_color = Color(0.0588235, 0.0470588, 0.0196078, 0.568627)
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h44y"]
+bg_color = Color(0.0588235, 0.0470588, 0.0196078, 0.568627)
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74ntc"]
+texture = ExtResource("2_v8s5t")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_jhxo0")
+Button/styles/focus = SubResource("StyleBoxEmpty_42812")
+Button/styles/hover = SubResource("StyleBoxFlat_wferd")
+Button/styles/normal = SubResource("StyleBoxFlat_rsg3q")
+Button/styles/pressed = SubResource("StyleBoxFlat_3h44y")
+Panel/styles/panel = SubResource("StyleBoxTexture_74ntc")
+VBoxContainer/constants/separation = 22
