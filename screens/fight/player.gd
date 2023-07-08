@@ -26,8 +26,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("walk"):
 		current_speed = SLOW_SPEED
 	
-	var up_down = Input.get_axis("ui_up", "ui_down")
-	var left_right = Input.get_axis("ui_left", "ui_right")
+	var up_down = Input.get_axis("up", "down")
+	var left_right = Input.get_axis("left", "right")
 
 	if up_down:
 		velocity.y = up_down * current_speed
