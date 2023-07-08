@@ -9,7 +9,9 @@ var ATTACK_COOLDOWN_TIME = 0.1
 var attack_cd = 0.1
 @onready var BulletScene: PackedScene = load("res://bullets/bullet_player.tscn")
 
-@onready var hint = $HitboxHint
+var dodging = false
+var DODGE_COOLDOWN = 1
+
 
 var cursor_idle = load("res://assets/cursor.png")
 var cursor_firing = load("res://assets/cursor_firing.png")
@@ -17,7 +19,6 @@ var cursor_firing = load("res://assets/cursor_firing.png")
 # tween between red and white, move to ready to set this up
 func _process(delta):
 	handle_firing(delta)
-	hint.set_modulate(Color(1,0,0))
 
 # use delta
 func _physics_process(delta):
@@ -47,6 +48,8 @@ func handle_firing(delta):
 		can_fire = true
 	
 	#see if we are firing
+	if dodging:
+		return
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		Input.set_custom_mouse_cursor(cursor_firing)
 		if can_fire:
