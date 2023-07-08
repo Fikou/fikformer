@@ -28,5 +28,8 @@ func unload_screen():
 	self.remove_child(current_screen)
 	current_screen.call_deferred("free")
 
-func set_music(filepath):
-	pass
+func set_music(path):
+	var music = load(path)
+	music.set_loop(true)
+	music_player.stream = music
+	music_player.play()

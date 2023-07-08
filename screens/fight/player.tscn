@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwgeiaia8iiv3"]
+[gd_scene load_steps=6 format=3 uid="uid://b2trjwxrukv8h"]
 
 [ext_resource type="Texture2D" uid="uid://rr3iy74ep175" path="res://assets/Tiles/Colored/tile_0013.png" id="1_48jkm"]
 [ext_resource type="Script" path="res://screens/fight/player.gd" id="1_f4qsn"]
