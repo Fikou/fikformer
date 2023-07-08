@@ -1,8 +1,8 @@
-extends Node2D
+extends Node
 
-const SCREEN_TITLE = "res://screens/title.tscn"
-const SCREEN_FIGHT = "res://screens/fight.tscn"
-const SCREEN_UPGRADES = "res://screens/upgrades.tscn"
+const SCREEN_TITLE = "res://screens/title/title.tscn"
+const SCREEN_FIGHT = "res://screens/fight/fight.tscn"
+const SCREEN_UPGRADES = "res://screens/upgrades/upgrades.tscn"
 
 var current_screen = null
 
