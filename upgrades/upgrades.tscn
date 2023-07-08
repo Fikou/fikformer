@@ -21,18 +21,27 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_geydl")
 
 [node name="UpgradeOption1" parent="." instance=ExtResource("2_j80kx")]
 layout_mode = 1
-offset_left = 207.0
-offset_top = 91.0
-offset_right = 206.64
-offset_bottom = 91.32
+offset_left = 30.0
+offset_top = 102.0
+offset_right = 29.64
+offset_bottom = 102.32
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="UpgradeOption2" parent="." instance=ExtResource("2_j80kx")]
 layout_mode = 1
-offset_left = 637.0
-offset_top = 92.0
-offset_right = 636.64
-offset_bottom = 92.32
+offset_left = 405.0
+offset_top = 103.0
+offset_right = 404.64
+offset_bottom = 103.32
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="UpgradeOption3" parent="." instance=ExtResource("2_j80kx")]
+layout_mode = 1
+offset_left = 765.0
+offset_top = 106.0
+offset_right = 764.64
+offset_bottom = 106.32
 grow_horizontal = 1
 grow_vertical = 1
