@@ -1,11 +1,13 @@
-extends Node2D
+extends Node
 
+
+var map = ["res://screens/fight/maps/hut.tscn"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_map(map.pick_random())
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func set_map(new_scene_path):
+	var new_scene_resource: PackedScene = load(new_scene_path)
+	var new_scene_instance = new_scene_resource.instantiate()
+	add_child(new_scene_instance)

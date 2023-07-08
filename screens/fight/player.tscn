@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwgeiaia8iiv3"]
+
+[ext_resource type="Texture2D" uid="uid://rr3iy74ep175" path="res://assets/Tiles/Colored/tile_0013.png" id="1_48jkm"]
+[ext_resource type="Script" path="res://screens/fight/player.gd" id="1_f4qsn"]
+[ext_resource type="Texture2D" uid="uid://dxdosatvicmir" path="res://assets/hitboxhint.png" id="2_4hpso"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vno5u"]
+size = Vector2(24, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ourta"]
+radius = 4.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_f4qsn")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_48jkm")
+
+[node name="WallHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vno5u")
+
+[node name="BulletHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ourta")
+
+[node name="HitboxHint" type="Sprite2D" parent="."]
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_4hpso")

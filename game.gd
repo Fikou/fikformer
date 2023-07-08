@@ -8,7 +8,7 @@ var current_screen = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_screen(SCREEN_TITLE)
+	set_screen(SCREEN_FIGHT)
 
 func set_screen(new_scene_path):
 	var new_screen = load_screen(new_scene_path)
