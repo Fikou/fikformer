@@ -38,7 +38,7 @@ anchor_bottom = 1.0
 offset_left = 200.0
 offset_top = 358.0
 offset_right = -200.0
-offset_bottom = -38.0
+offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -53,17 +53,6 @@ text = "CREDITS"
 [node name="Quit" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "QUIT"
-
-[node name="Title Logo" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 334.0
-offset_top = 15.0
-offset_right = -335.0
-offset_bottom = -350.0
-texture = ExtResource("1_wfp03")
 
 [node name="Panel" type="Panel" parent="Panel"]
 visible = false
@@ -114,6 +103,19 @@ offset_right = 5701.0
 offset_bottom = 3165.0
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("5_dx3dk")
+
+[node name="Title Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 334.0
+offset_top = 15.0
+offset_right = -335.0
+offset_bottom = -350.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wfp03")
 
 [connection signal="pressed" from="Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
