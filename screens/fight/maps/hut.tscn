@@ -523,6 +523,7 @@ PlayerRef = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_nkau8")]
 position = Vector2(303, 543)
+health = 6.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-28, 4)
@@ -530,8 +531,6 @@ navigation_polygon = SubResource("NavigationPolygon_wfle4")
 
 [node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("PlayerRef") instance=ExtResource("4_q4f7j")]
 PlayerRef = NodePath("../Player")
-MaxHealth = 6
 
 [node name="HeroHealthBar" parent="." node_paths=PackedStringArray("HeroRef") instance=ExtResource("5_fa1mg")]
 HeroRef = NodePath("../Hero")
-MaxHealth = 100

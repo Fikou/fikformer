@@ -18,5 +18,6 @@ func _physics_process(delta):
 func _on_bullet_hit(body):
 	if body.is_in_group("Enemies"):
 		body.Damage(damage)
-		print("hit a " + str(body))
-		queue_free()
+	if body.is_in_group("Player"):
+		body.Damage(damage)
+	queue_free()

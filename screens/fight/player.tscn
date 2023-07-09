@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2trjwxrukv8h"]
+[gd_scene load_steps=10 format=3 uid="uid://b2trjwxrukv8h"]
 
 [ext_resource type="Script" path="res://screens/fight/player.gd" id="1_f4qsn"]
 [ext_resource type="Texture2D" uid="uid://c58onb42v657b" path="res://assets/lichattack.png" id="2_0bak4"]
 [ext_resource type="Texture2D" uid="uid://bfq2sc5alh672" path="res://assets/lich.png" id="2_db8i6"]
-[ext_resource type="AudioStream" path="res://sound/dodge_ready.wav" id="4_jpld4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vno5u"]
 size = Vector2(42, 48)
@@ -52,7 +51,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_f4qsn")
 
@@ -66,4 +65,3 @@ animation = &"idle"
 frame_progress = 0.807563
 
 [node name="playeraudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_jpld4")
