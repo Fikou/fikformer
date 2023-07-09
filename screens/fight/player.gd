@@ -13,7 +13,7 @@ var dodging = false
 # how long you are dodging
 const DODGE_DURATION = 0.8
 const DODGE_INITIAL_VELOCITY = 25000
-const DODGE_LOST_VELOCITY = 700
+const DODGE_LOST_VELOCITY = 500
 var dodge_velocity = DODGE_INITIAL_VELOCITY
 var dodge_dir = Vector2(0,0)
 const DODGE_COOLDOWN_TIME = 1
@@ -21,12 +21,6 @@ var dodge_cd = 0
 
 var cursor_idle = load("res://assets/cursor.png")
 var cursor_firing = load("res://assets/cursor_firing.png")
-
-var lich_idle = load("res://assets/lich.png")
-var mummy_left = load("res://assets/lich_left.png")
-var mummy_right = load("res://assets/lich_right.png")
-
-var next_attack_sprite = mummy_right
 
 # tween between red and white, move to ready to set this up
 func _process(delta):
@@ -71,7 +65,6 @@ func normal_move(delta):
 
 func dodge_move(delta):
 	var dodge_vector = dodge_dir * dodge_velocity * delta
-	print(dodge_vector)
 	dodge_velocity = move_toward(dodge_velocity, 0, DODGE_LOST_VELOCITY)
 	velocity = dodge_vector
 	
@@ -80,7 +73,7 @@ func dodge_move(delta):
 func start_dodge():
 	dodging = true
 	$sprite.set_rotation_degrees(0)
-	$sprite.set_texture(lich_idle)
+	$sprite.play("idle")
 	dodge_velocity = DODGE_INITIAL_VELOCITY
 	var mouse_angle = get_angle_to(get_global_mouse_position())
 	dodge_dir = Vector2(cos(mouse_angle), sin(mouse_angle))
@@ -110,23 +103,15 @@ func handle_firing(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		Input.set_custom_mouse_cursor(cursor_firing, Input.CURSOR_ARROW, Vector2(8,8))
 		if can_fire:
-			set_attack_sprite()
+			$sprite.play("attacking")
 			fire_projectile()
 	else:
 		Input.set_custom_mouse_cursor(cursor_idle, Input.CURSOR_ARROW, Vector2(8,8))
 		if can_fire:
-			$sprite.set_texture(lich_idle)
-
-func set_attack_sprite():
-	$sprite.set_texture(next_attack_sprite)
-	if next_attack_sprite == mummy_left:
-		next_attack_sprite = mummy_right
-	else:
-		next_attack_sprite = mummy_left
+			$sprite.play("idle")
 
 func fire_projectile():
 	attack_cd = ATTACK_COOLDOWN_TIME
-	
 	var BulletInstance = BulletScene.instantiate()
 	owner.add_child(BulletInstance)
 	BulletInstance.set_position(position)
