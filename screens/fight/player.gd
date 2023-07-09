@@ -1,4 +1,4 @@
-extends Character
+extends CharacterBody2D
 
 class_name Player
 
@@ -21,6 +21,8 @@ var dodge_cd = 0
 
 var cursor_idle = load("res://assets/cursor.png")
 var cursor_firing = load("res://assets/cursor_firing.png")
+
+var sound_dodge_ready = load("res://sound/dodge_ready.wav")
 
 # tween between red and white, move to ready to set this up
 func _process(delta):
@@ -87,8 +89,11 @@ func start_dodge():
 	end_dodge()
 
 func end_dodge():
+	await get_tree().create_timer(DODGE_COOLDOWN_TIME).timeout
+	$playeraudio.set_audio()
+	$playeraudio.play()
 	dodging = false
-	dodge_cd = DODGE_COOLDOWN_TIME
+	
 
 func handle_firing(delta):
 	#lower cooldowns
