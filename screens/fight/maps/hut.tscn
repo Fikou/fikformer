@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhfmruogd5nro"]
+[gd_scene load_steps=9 format=3 uid="uid://bhfmruogd5nro"]
 
 [ext_resource type="Texture2D" uid="uid://30cu8m0ykixo" path="res://assets/Tilemap/colored_tilemap_packed.png" id="1_h8wft"]
 [ext_resource type="PackedScene" uid="uid://tj0l1t15vanx" path="res://enemy/hero.tscn" id="2_33l3k"]
 [ext_resource type="PackedScene" uid="uid://b2trjwxrukv8h" path="res://screens/fight/player.tscn" id="2_nkau8"]
 [ext_resource type="PackedScene" uid="uid://djbu7ltwrbthw" path="res://screens/PlayerHealthBar.tscn" id="4_q4f7j"]
+[ext_resource type="PackedScene" uid="uid://bo7t1jjkv1a5b" path="res://screens/HeroHealthBar.tscn" id="5_fa1mg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dx1n"]
 texture = ExtResource("1_h8wft")
@@ -527,4 +528,10 @@ position = Vector2(303, 543)
 position = Vector2(-28, 4)
 navigation_polygon = SubResource("NavigationPolygon_wfle4")
 
-[node name="PlayerHealthBar" parent="." instance=ExtResource("4_q4f7j")]
+[node name="PlayerHealthBar" parent="." node_paths=PackedStringArray("PlayerRef") instance=ExtResource("4_q4f7j")]
+PlayerRef = NodePath("../Player")
+MaxHealth = 6
+
+[node name="HeroHealthBar" parent="." node_paths=PackedStringArray("HeroRef") instance=ExtResource("5_fa1mg")]
+HeroRef = NodePath("../Hero")
+MaxHealth = 100
