@@ -51,7 +51,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_f4qsn")
 
@@ -63,3 +63,5 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_asrcp")
 animation = &"idle"
 frame_progress = 0.807563
+
+[node name="playeraudio" type="AudioStreamPlayer" parent="."]

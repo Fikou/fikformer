@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ehvwx5m82x8h"]
+[gd_scene load_steps=4 format=3 uid="uid://ehvwx5m82x8h"]
 
 [ext_resource type="Script" path="res://screens/fight/fight.gd" id="1_pg7k0"]
-[ext_resource type="PackedScene" uid="uid://ddcc3r13x0adl" path="res://screens/pause.tscn" id="2_mrw4g"]
+[ext_resource type="PackedScene" path="res://screens/pause.tscn" id="2_mrw4g"]
+[ext_resource type="PackedScene" uid="uid://bk5is451k4ah3" path="res://enemy/Attacks/StartingAttack.tscn" id="3_2u64n"]
 
 [node name="fight" type="Node"]
 script = ExtResource("1_pg7k0")
 
 [node name="pause" parent="." instance=ExtResource("2_mrw4g")]
+
+[node name="Upgrades" type="Node2D" parent="."]
+
+[node name="EnemyAttacks" type="Node2D" parent="."]
+
+[node name="StartingAttack" parent="EnemyAttacks" instance=ExtResource("3_2u64n")]

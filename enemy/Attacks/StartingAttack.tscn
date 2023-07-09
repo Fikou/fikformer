@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk5is451k4ah3"]
+
+[ext_resource type="Script" path="res://enemy/Attacks/StartingAttack.gd" id="1_rltkn"]
+
+[node name="StartingAttack" type="Node"]
+script = ExtResource("1_rltkn")
