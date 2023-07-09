@@ -9,10 +9,10 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_start_pressed():
-	game.set_screen("res://screens/fight/fight.tscn")
+	game.set_screen("res://screens/intro/Introduction.tscn")
 
 func _on_credits_pressed():
-	$Panel/Panel.set_visible(true)
+	$Panel2.set_visible(true)
 
 func _on_exit_cr_pressed():
-	$Panel/Panel.set_visible(false)
+	$Panel2.set_visible(false)

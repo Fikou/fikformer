@@ -1,4 +1,14 @@
-[gd_scene format=3 uid="uid://picvuatka16r"]
+[gd_scene load_steps=6 format=3 uid="uid://picvuatka16r"]
+
+[ext_resource type="Theme" uid="uid://bnfx3qcsvfhjl" path="res://theme.tres" id="1_k0dv7"]
+[ext_resource type="Script" path="res://screens/intro/Introduction.gd" id="2_bktb5"]
+[ext_resource type="Texture2D" uid="uid://ldthjoru6jwe" path="res://assets/bricks.png" id="2_l3xkl"]
+[ext_resource type="Texture2D" uid="uid://bb20ecveuf1i" path="res://assets/letter.png" id="3_8nj26"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4i1rh"]
+texture = ExtResource("2_l3xkl")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="Introduction" type="Control"]
 layout_mode = 3
@@ -7,3 +17,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_k0dv7")
+script = ExtResource("2_bktb5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4i1rh")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -211.0
+offset_top = -69.0
+offset_right = 211.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continue"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -439.0
+offset_top = -322.0
+offset_right = 908.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_8nj26")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 311.0
+offset_right = 978.0
+offset_bottom = 557.0
+theme_override_font_sizes/font_size = 26
+text = "ENGLISH TRANSLATION: Dear adventurers!
+For years you've been plundering MY tomb.
+Frankly, I'm sick of it! How about you get a taste of that! That's right.
+Time to have YOUR homes become your tombs!
+...
+People you beat get stronger! When beating someone, you choose an upgrade for them. Be careful.
+WASD - Movement LMB - Fire Space - Dodge Esc - Pause"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

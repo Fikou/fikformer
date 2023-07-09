@@ -9,6 +9,8 @@ const ATTACK_COOLDOWN_TIME = 0.1
 var attack_cd = 0.1
 @onready var BulletScene: PackedScene = load("res://bullets/bullet_player.tscn")
 
+var rng = RandomNumberGenerator.new()
+
 var dodging = false
 # how long you are dodging
 const DODGE_DURATION = 0.8
@@ -18,6 +20,7 @@ var dodge_velocity = DODGE_INITIAL_VELOCITY
 var dodge_dir = Vector2(0,0)
 const DODGE_COOLDOWN_TIME = 1
 var dodge_cd = 0
+var waddle_cd = 0
 
 var cursor_idle = load("res://assets/cursor.png")
 var cursor_firing = load("res://assets/cursor_firing.png")
@@ -26,6 +29,7 @@ var cursor_firing = load("res://assets/cursor_firing.png")
 func _process(delta):
 	handle_sprite(delta)
 	handle_firing(delta)
+	waddle_cd = move_toward(waddle_cd, 0, delta)
 
 func handle_sprite(delta):
 	var mouse_pos = get_local_mouse_position()
@@ -47,10 +51,26 @@ func _physics_process(delta):
 	else:
 		normal_move(delta)
 
+func reset_waddle():
+	var tween = get_tree().create_tween()
+	tween.tween_property($sprite, "rotation_degrees", 0, 0.05)
+	tween.tween_callback(tween.kill)
+
 func normal_move(delta):
 	var current_speed = SPEED
 	var up_down = Input.get_axis("up", "down")
 	var left_right = Input.get_axis("left", "right")
+	var tween = get_tree().create_tween()
+	if !waddle_cd && (up_down || left_right):
+		waddle_cd = 0.25
+		var rotation_amount = 0
+		if rng.randi_range(0, 1) % 2:
+			rotation_amount = 12
+		else:
+			rotation_amount = -12
+		tween.tween_property($sprite, "rotation_degrees", rotation_amount, 0.2)
+		tween.tween_callback(self.reset_waddle)
+		tween.tween_callback(tween.kill)
 
 	if up_down:
 		velocity.y = up_down * current_speed
