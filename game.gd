@@ -1,8 +1,10 @@
 extends Node
 
 const SCREEN_TITLE = "res://screens/title/title.tscn"
+const SCREEN_INTRO = "res://screens/intro/Introduction.tscn"
 const SCREEN_FIGHT = "res://screens/fight/fight.tscn"
 const SCREEN_UPGRADES = "res://screens/upgrades/upgrades.tscn"
+const SCREEN_GAMEOVER = "res://screens/gameover/GameOver.tscn"
 
 var current_screen = null
 
