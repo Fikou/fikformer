@@ -1,17 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2trjwxrukv8h"]
+[gd_scene load_steps=10 format=3 uid="uid://b2trjwxrukv8h"]
 
 [ext_resource type="Script" path="res://screens/fight/player.gd" id="1_f4qsn"]
+[ext_resource type="Texture2D" uid="uid://c58onb42v657b" path="res://assets/lichattack.png" id="2_0bak4"]
 [ext_resource type="Texture2D" uid="uid://bfq2sc5alh672" path="res://assets/lich.png" id="2_db8i6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vno5u"]
 size = Vector2(42, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_67uod"]
+atlas = ExtResource("2_0bak4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h68hw"]
+atlas = ExtResource("2_0bak4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghs6u"]
+atlas = ExtResource("2_0bak4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4pvg"]
+atlas = ExtResource("2_0bak4")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_asrcp"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67uod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h68hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghs6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4pvg")
+}],
 "loop": true,
 "name": &"attacking",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -32,4 +61,5 @@ shape = SubResource("RectangleShape2D_vno5u")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_asrcp")
-animation = &"attacking"
+animation = &"idle"
+frame_progress = 0.807563
