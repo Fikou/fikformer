@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ehvwx5m82x8h"]
+[gd_scene load_steps=3 format=3 uid="uid://ehvwx5m82x8h"]
 
 [ext_resource type="Script" path="res://screens/fight/fight.gd" id="1_pg7k0"]
+[ext_resource type="PackedScene" uid="uid://ddcc3r13x0adl" path="res://screens/pause.tscn" id="2_mrw4g"]
 
 [node name="fight" type="Node"]
 script = ExtResource("1_pg7k0")
+
+[node name="pause" parent="." instance=ExtResource("2_mrw4g")]
