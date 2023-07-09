@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlgwwj4dtq7ca"]
+
+[ext_resource type="Script" path="res://addons/yet_another_behavior_tree/src/Nodes/BTRoot.gd" id="1_veokx"]
+[ext_resource type="Script" path="res://addons/yet_another_behavior_tree/src/Blackboard/BTBlackboard.gd" id="2_sg1oe"]
+[ext_resource type="Script" path="res://addons/yet_another_behavior_tree/src/Nodes/Composite/BTSelector.gd" id="2_vu7bq"]
+[ext_resource type="Script" path="res://addons/yet_another_behavior_tree/src/Nodes/Composite/BTSequence.gd" id="3_eoqrj"]
+[ext_resource type="Script" path="res://enemy/heroAI/BTIsInRange.gd" id="3_wgetx"]
+[ext_resource type="Script" path="res://enemy/heroAI/BTAction_StrafeAroundPlayer.gd" id="4_75kt5"]
+[ext_resource type="PackedScene" uid="uid://bd2ibna7tfdjl" path="res://enemy/heroAI/BTAction_MoveToPlayer.tscn" id="4_q4diq"]
+
+[node name="HeroAI" type="Node2D"]
+
+[node name="BTRoot" type="Node" parent="." node_paths=PackedStringArray("blackboard")]
+script = ExtResource("1_veokx")
+actor_path = NodePath(".")
+blackboard = NodePath("../BTBlackboard")
+enable_monitor = true
+
+[node name="BTSelector" type="Node" parent="BTRoot"]
+script = ExtResource("2_vu7bq")
+
+[node name="BTSequence" type="Node" parent="BTRoot/BTSelector"]
+script = ExtResource("3_eoqrj")
+
+[node name="ConditionPlayerIsInRange" type="Node" parent="BTRoot/BTSelector/BTSequence"]
+script = ExtResource("3_wgetx")
+
+[node name="StrafeAroundPlayerAction" type="Node" parent="BTRoot/BTSelector/BTSequence"]
+script = ExtResource("4_75kt5")
+
+[node name="BTAction_MoveToPlayuer" parent="BTRoot/BTSelector" instance=ExtResource("4_q4diq")]
+
+[node name="BTBlackboard" type="Node" parent="."]
+script = ExtResource("2_sg1oe")
+data = {
+"Agent": null,
+"Player": null,
+"TargetLocation": Vector2(0, 0)
+}

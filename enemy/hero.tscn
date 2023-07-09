@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://tj0l1t15vanx"]
+
+[ext_resource type="Script" path="res://enemy/hero.gd" id="1_3faoh"]
+[ext_resource type="Texture2D" uid="uid://ch6ude7l7aj60" path="res://assets/Tiles/Colored/tile_0006.png" id="2_wku87"]
+[ext_resource type="PackedScene" uid="uid://dlgwwj4dtq7ca" path="res://enemy/heroAI/HeroAI.tscn" id="3_3k2cc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vno5u"]
+size = Vector2(24, 24)
+
+[node name="Hero" type="CharacterBody2D" node_paths=PackedStringArray("NavAgentRef")]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_3faoh")
+NavAgentRef = NodePath("NavigationAgent2D")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_wku87")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vno5u")
+
+[node name="HeroAI" parent="." instance=ExtResource("3_3k2cc")]
+position = Vector2(161, 448)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 10.0
+avoidance_enabled = true
+radius = 500.0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0.00784314, 1, 1)

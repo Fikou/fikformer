@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 
 const SPEED = 200.0
 const SLOW_SPEED = 100.0
