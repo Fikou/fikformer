@@ -6,6 +6,8 @@ class_name Bullet
 
 @export var target_name = ""
 
+@export var damage = 1
+
 func _ready():
 	var sprite_check = $Sprite2D
 	
@@ -14,5 +16,7 @@ func _physics_process(delta):
 	super(delta)
 
 func _on_bullet_hit(body):
-	if body.name == "TileMap":
+	if body.is_in_group("Enemies"):
+		body.Damage(damage)
+		print("hit a " + str(body))
 		queue_free()

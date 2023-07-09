@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://djbu7ltwrbthw"]
+
+[ext_resource type="Theme" uid="uid://bnfx3qcsvfhjl" path="res://theme.tres" id="1_6x6cs"]
+[ext_resource type="Script" path="res://screens/PlayerHealthBar.gd" id="1_macrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgoab"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88c23"]
+bg_color = Color(0.721569, 0, 0.235294, 1)
+
+[node name="PlayerHealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_macrt")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 606.0
+offset_right = 872.0
+offset_bottom = 642.0
+theme = ExtResource("1_6x6cs")
+theme_override_styles/background = SubResource("StyleBoxFlat_jgoab")
+theme_override_styles/fill = SubResource("StyleBoxFlat_88c23")
+max_value = 6.0
+value = 3.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 570.0
+offset_right = 690.0
+offset_bottom = 595.0
+theme = ExtResource("1_6x6cs")
+theme_override_font_sizes/font_size = 24
+text = "Boss"
+horizontal_alignment = 1
+vertical_alignment = 1

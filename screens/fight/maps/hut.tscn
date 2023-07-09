@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhfmruogd5nro"]
+[gd_scene load_steps=8 format=3 uid="uid://bhfmruogd5nro"]
 
 [ext_resource type="Texture2D" uid="uid://30cu8m0ykixo" path="res://assets/Tilemap/colored_tilemap_packed.png" id="1_h8wft"]
 [ext_resource type="PackedScene" uid="uid://tj0l1t15vanx" path="res://enemy/hero.tscn" id="2_33l3k"]
-[ext_resource type="PackedScene" uid="uid://bwgeiaia8iiv3" path="res://screens/fight/player.tscn" id="2_nkau8"]
+[ext_resource type="PackedScene" uid="uid://b2trjwxrukv8h" path="res://screens/fight/player.tscn" id="2_nkau8"]
+[ext_resource type="PackedScene" uid="uid://djbu7ltwrbthw" path="res://screens/PlayerHealthBar.tscn" id="4_q4f7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dx1n"]
 texture = ExtResource("1_h8wft")
@@ -502,9 +503,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6dx1n")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wfle4"]
-vertices = PackedVector2Array(202, 72, 1094, 71, 1098, 577, 193, 576)
+vertices = PackedVector2Array(228, 73, 1094, 71, 1098, 577, 222, 575)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(193, 576, 1098, 577, 1094, 71, 202, 72)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(222, 575, 1098, 577, 1094, 71, 228, 73)])
 
 [node name="hut" type="Node"]
 
@@ -525,3 +526,5 @@ position = Vector2(303, 543)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(-28, 4)
 navigation_polygon = SubResource("NavigationPolygon_wfle4")
+
+[node name="PlayerHealthBar" parent="." instance=ExtResource("4_q4f7j")]
