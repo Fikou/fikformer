@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch0bmhjf0p7hc"]
+
+[ext_resource type="Script" path="res://enemy/heroAI/BTAction_StrafeAroundPlayer.gd" id="1_8j0jr"]
+
+[node name="BTAction_StrafeAroundPlayer" type="Node"]
+script = ExtResource("1_8j0jr")

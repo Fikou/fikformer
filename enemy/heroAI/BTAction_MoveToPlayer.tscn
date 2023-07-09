@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd2ibna7tfdjl"]
+
+[ext_resource type="Script" path="res://enemy/heroAI/BTAction_MoveToPlayer.gd" id="1_1yxdw"]
+
+[node name="BTAction_MoveTo" type="Node"]
+script = ExtResource("1_1yxdw")
